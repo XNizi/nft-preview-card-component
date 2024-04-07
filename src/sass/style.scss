@@ -1,0 +1,119 @@
+@use './variables' as *;
+html {
+	font-size: 62.5%;
+}
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	padding: 0 24px;
+	font-family: 'Outfit', sans-serif;
+	background-color: $veryDarkBlueMain;
+}
+.card {
+	background-color: $veryDarkBlueCard;
+	padding: 24px;
+	border-radius: 15px;
+	box-shadow: 0px 25px 50px 0px rgba(0, 0, 0, 0.1);
+	max-width: 350px;
+	&__img {
+		position: relative;
+		width: 100%;
+		border-radius: 8px;
+		cursor: pointer;
+		&:hover + .hover {
+			clip-path: circle(100% at 50% 50%);
+		}
+	}
+	&__imgHover {
+		position: relative;
+	}
+	&__title {
+		margin-top: 24px;
+		margin-bottom: 12px;
+		@include heading;
+		color: $white;
+		cursor: pointer;
+		transition: color 0.3s;
+		&:hover {
+			color: $cyan;
+		}
+	}
+	&__body {
+		@include body;
+		color: $softBlue;
+	}
+	&__nftData {
+		display: flex;
+		justify-content: space-between;
+		margin: 16px 0;
+	}
+	&__price {
+		display: flex;
+		align-items: center;
+		p {
+			@include captionBold;
+			margin-left: 6.485px;
+			color: $cyan;
+		}
+	}
+	&__time {
+		display: flex;
+		align-items: center;
+		p {
+			@include caption;
+			color: $softBlue;
+			margin-left: 7.695px;
+		}
+	}
+	hr {
+		background-color: $veryDarkBlueLine;
+		height: 1px;
+		border: 0;
+		margin-bottom: 16px;
+	}
+	&__authorBox {
+		display: flex;
+		align-items: center;
+		img {
+			height: 33px;
+			width: 33px;
+			border: 1px solid $white;
+			border-radius: 33px;
+		}
+		p {
+			@include caption;
+			margin-left: 16px;
+			color: $softBlue;
+			span {
+				color: $white;
+				cursor: pointer;
+				transition: color 0.3s;
+				&:hover {
+					color: $cyan;
+				}
+			}
+		}
+	}
+}
+.hover {
+	position: absolute;
+	bottom: 3px;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: rgb(0, 255, 248, 0.503);
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	clip-path: circle(0% at 50% 50%);
+	pointer-events: none;
+	transition: clip-path 0.3s;
+}
